@@ -38,7 +38,7 @@
     </servlet-mapping>
   ```
 
-+ <p style="color: #1E90FF">spring-mvc.xml配置_拦截器</p>
+- <p style="color: #1E90FF">spring-mvc.xml配置_拦截器</p>
 
   ```xml
    	<mvc:interceptors>
