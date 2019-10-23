@@ -1,0 +1,37 @@
+*{
+	margin: 0;padding: 0;
+}
+h6{
+	text-align: center;
+	color: red;
+	padding: 10px;
+	font-size: 14px;
+}
+form{
+	padding: 10px;
+	float: left;
+}
+form div{
+	border: 1px gray solid;
+	width: 320px;
+	padding: 8px;
+}
+form p input{
+	width: 180px;
+}
+form h2 input{
+	text-align: center;
+}
+form h2{
+	background: black;
+	color: white;
+	padding: 4px;
+}
+form p{
+	background: #ddd;
+	padding: 4px 8px 0 8px;
+}
+form h3{
+	background: #ddd;
+	padding: 8px;
+}
