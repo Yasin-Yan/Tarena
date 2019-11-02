@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="entity.DeptMapper">
+	 <insert id="addDept" parameterType="entity.Dept">
+	 	INSERT INTO t_dept(deptno, dname, loc) 
+	 	VALUES (#{deptno}, #{dname}, #{loc})
+	 </insert>
+	 
+	 <update id="updateDept" parameterType="entity.Dept">
+	 	UPDATE t_dept SET dname = #{dname}, loc = #{loc} WHERE deptno = #{deptno}
+	 </update>
+	 
+	 <select id="findById" parameterType="int" resultType="entity.Dept">
+	 	SELECT deptno, dname, loc FROM t_dept WHERE deptno = #{deptno}
+	 </select>
+	 
+	 <delete id="deleteById" parameterType="int">
+	 	DELETE FROM t_dept WHERE deptno = #{deptno}
+	 </delete>
+	 
+	 <select id="findAll" resultType="entity.Dept">
+	 	SELECT deptno, dname, loc from t_dept
+	 </select>
+	 
+	 <!-- 返回Map -->
+	 <select id="findDept" parameterType="int" resultType="java.util.HashMap">
+	 	SELECT deptno, dname, loc FROM t_dept WHERE deptno = #{deptno}
+	 </select>
+	 
+	 <select id="findDepts" resultType="java.util.HashMap">
+	 	SELECT deptno, dname, loc FROM t_dept
+	 </select>
+	 
+	 <!-- ResultMap应用 --> 
+	 <resultMap id="deptMap" type="entity.Dept1">
+	 	<result property="no" column="deptno" jdbcType="INTEGER" javaType="int"/>
+	 	<result property="name" column="dname" jdbcType="VARCHAR" javaType="string"/>
+	 	<result property="loc" column="loc" jdbcType="VARCHAR" javaType="string"/>
+	 </resultMap>
+	 
+	 <select id="findAll1" resultMap="deptMap">
+	 	SELECT deptno, dname, loc from t_dept
+	 </select>
+ </mapper>
+ 
