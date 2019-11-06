@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="dao.EmpDAO">
+ 	<select id="findAll" resultMap="EmpMap">
+ 		SELECT id, emp_name, salary, age FROM t_emp
+ 	</select>
+ 	<resultMap type="entity.Emp" id="EmpMap">
+ 		<result property="id" column="id" jdbcType="INTEGER" javaType="int"/>
+ 		<result property="name" column="emp_name" jdbcType="VARCHAR" javaType="string"/>
+ 		<result property="salary" column="salary" jdbcType="DECIMAL" javaType="double"/>
+ 		<result property="age" column="salary" jdbcType="DECIMAL" javaType="double"/>
+ 	</resultMap>
+ </mapper>
