@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="mapper.EmpMapper">
+	<select id="findAll" resultMap="EmpMap">
+		SELECT * FROM t_emp
+	</select>
+	
+	<insert id="addEmp" parameterType="entity.Emp">
+		INSERT t_emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) 
+		values (#{id}, #{name}, #{job}, #{mgr}, #{hiredate}, #{salary}, #{comm}, #{deptno})
+	</insert>
+	
+	<delete id="deleteEmp" parameterType="int">
+		DELETE FROM t_emp WHERE empno = #{id}
+	</delete>
+	
+	<select id="findEmp" resultMap="EmpMap">
+		SELECT * FROM t_emp WHERE empno = #{id}
+	</select>
+	
+	<update id="updateEmp" parameterType="entity.Emp">
+		UPDATE t_emp SET empno = #{id}, ename = #{name}, job = #{job}, 
+		mgr = #{mgr}, hiredate = #{hiredate}, sal = #{salary}, comm = #{comm}, deptno = #{deptno}
+		WHERE empno = #{id}
+	</update> 
+	
+	<!-- 返回当前最大员工编号 -->
+	<select id="findMaxId" resultType="int">
+		SELECT MAX(empno) AS maxId FROM t_emp
+	</select>
+	
+	<resultMap type="entity.Emp" id="EmpMap">
+		<result property="id" column="empno" javaType="int" jdbcType="INTEGER"/>
+		<result property="name" column="ename" javaType="string" jdbcType="VARCHAR"/>
+		<result property="job" column="job" javaType="string" jdbcType="VARCHAR"/>
+		<result property="mgr" column="mgr" javaType="int" jdbcType="INTEGER"/>
+		<result property="hiredate" column="hiredate" javaType="java.sql.Date" jdbcType="DATE"/>
+		<result property="salary" column="sal" javaType="double" jdbcType="NUMERIC"/>
+		<result property="comm" column="comm" javaType="double" jdbcType="NUMERIC"/>
+		<result property="deptno" column="deptno" javaType="int" jdbcType="INTEGER"/>	
+	</resultMap>
+</mapper>
+
+
