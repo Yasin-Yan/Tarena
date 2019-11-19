@@ -151,4 +151,5 @@ public List<Book> queryAll(@Param("offset") int offset, @Param("limit") int limi
 ```
 
 ### 测试后台示例
-
++ postman
+<img align="center" src="https://github.com/yanwus/Tarena/blob/master/IMGE/IMG_1.png" width="800"/>
